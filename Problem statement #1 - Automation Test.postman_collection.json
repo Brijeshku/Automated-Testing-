@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "3981f3ba-fed2-4df0-8a65-4b9f370d8712",
+		"name": "Problem statement #1 - Automation Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7820493",
+		"_collection_link": "https://cloudy-meadow-3028-1.postman.co/workspace/ATB-API-BATCH~faa70723-84d2-4790-8459-1a20a9460e50/collection/7820493-3981f3ba-fed2-4df0-8a65-4b9f370d8712?action=share&source=collection_link&creator=7820493"
+	},
+	"item": [
+		{
+			"name": "Frontend",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to verify frontend response\r",
+							"pm.test(\"Frontend response is successful\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Retrieve the expected message set from the backend request\r",
+							"const expectedMessage = pm.environment.get(\"expectedMessage\");\r",
+							"\r",
+							"// Check if the frontend response contains the expected message\r",
+							"pm.test(\"Backend response is successful\", function () {\r",
+							"    const responseBody = pm.response.text();\r",
+							"    pm.expect(responseBody).to.include(expectedMessage);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.veripark.com/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"veripark",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Backend",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test to verify backend response\r",
+							"pm.test(\"Backend response is successful\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Extract the expected message from the backend response\r",
+							"const expectedMessage = \"Intelligent Customer Experience Suite\"; // Replace with actual message\r",
+							"pm.environment.set(\"expectedMessage\", expectedMessage);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://github.com/",
+					"protocol": "https",
+					"host": [
+						"github",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
